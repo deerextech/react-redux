@@ -4,6 +4,6 @@ import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import promise from 'redux-promise-middleware';
 
-import userReducer from './reducers/user';
+import usersReducer from './reducers/users';
 
-export default const store = createStore(userReducer, applyMiddleware(logger, promise()));
+export default createStore(usersReducer, applyMiddleware(logger, promise()));

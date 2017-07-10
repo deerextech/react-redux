@@ -11,7 +11,7 @@ const initalState = {
 }
 
 // REDCUER
-function userReducer(state=initalState, action) {
+function usersReducer(state=initalState, action) {
   const user = {
     name: '',
     email: '',
@@ -39,4 +39,4 @@ function userReducer(state=initalState, action) {
   }
 }
 
-export default userReducer;
+export default usersReducer;
