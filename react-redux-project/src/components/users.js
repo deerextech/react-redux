@@ -1,17 +1,22 @@
 import React from 'react';
+import Button from './button';
+import UserMap from './user-map';
 
 class Users extends React.Component{
 constructor(props){
   super(props);
-  this.componentDidMount = this.componentDidMount.bind(this);
 }
-componentDidMount(){
-  console.log(this.props)
-}
+
   render(){
+    const { data, fetchUsers } = this.props;
     return(
-      <div>
-        stufpfdjsa;fdsa
+      <div className='container'>
+        <Button onClick={fetchUsers} text={'Fetch Users'}/>
+        <div id={'users'}>
+          {data.users.map((user,i) =>{
+            return <UserMap key={i} user={user}/>
+          })}
+        </div>
       </div>
       )
   }

@@ -8,7 +8,7 @@ const initalState = {
 
 // REDCUER
 function usersReducer(state=initalState, action) {
-  let user;
+  let users;
 
   switch (action.type) {
     case 'FETCH_USER_PENDING':
@@ -16,7 +16,7 @@ function usersReducer(state=initalState, action) {
       return {...state, loading:true }
       break;
     case 'FETCH_USER_FULFILLED':
-    users = actions.payload.data.results; //list of users given back from api.
+      users = action.payload.data.results; //list of users given back from api.
       return {...state, loading:false, users}
     break;
     case 'FETCH_USER_REJECTED':

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Users from '../components/users';
-import ferchUsers from '../actions/users'; //uses redux action.
+import fetchUsers from '../actions/users'; //uses redux action.
 
 const mapStateToProps = (state) =>({
   //return object
@@ -14,7 +14,7 @@ const mapStateToProps = (state) =>({
 const mapDispatchToProps = (dispatch) =>{
   return {
     fetchUsers: () =>{
-      display(fetchUsers()) //dispatch users action.
+      dispatch(fetchUsers()) //dispatch users action.
     }
   }
 }
