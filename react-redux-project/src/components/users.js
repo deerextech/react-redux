@@ -1,7 +1,20 @@
 import React from 'react';
 
-export default (props) =>(
-  <div>
-    <h1>{props.data}</h1>
-  </div>
-)
+class Users extends React.Component{
+constructor(props){
+  super(props);
+  this.componentDidMount = this.componentDidMount.bind(this);
+}
+componentDidMount(){
+  console.log(this.props)
+}
+  render(){
+    return(
+      <div>
+        stufpfdjsa;fdsa
+      </div>
+      )
+  }
+}
+
+export default Users;

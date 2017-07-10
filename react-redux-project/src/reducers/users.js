@@ -1,39 +1,27 @@
 const initalState = {
-  sendingRequest: false,
-  requestRecieved: false,
-  user: {
-    name: '',
-    email: '',
-    gender: ''
-  },
-  status: '',
-  statusClass: ''
+  users:[],
+  loading:false,
+  error:null
 }
+// * ... spread operator *
+
 
 // REDCUER
 function usersReducer(state=initalState, action) {
-  const user = {
-    name: '',
-    email: '',
-    gender: ''
-  };
+  let user;
 
   switch (action.type) {
     case 'FETCH_USER_PENDING':
     //sends request
-      return {...state, sendingRequest: true, status: 'Pending...', statusClass: 'pending'}
+      return {...state, loading:true }
       break;
     case 'FETCH_USER_FULFILLED':
-    //assuming promise is fulfilled this case is fired.
-      //object returned is now paylod.data.results.
-      user.name = `${action.payload.data.results[0].name.first} ${action.payload.data.results[0].name.last}`
-      user.email = action.payload.data.results[0].email;
-      user.gender = action.payload.data.results[0].gender;
-      return {...state, sendingRequest: false, user, status: 'User Recieved', statusClass: 'success'}
+    users = actions.payload.data.results; //list of users given back from api.
+      return {...state, loading:false, users}
     break;
     case 'FETCH_USER_REJECTED':
     //this case happens when promise is rejected.
-    return {...state, sendingRequest: false, status: `${action.payload.message}`, statusClass: 'error'}
+    return {...state, loading:false, error: `${action.payload.message}`}
     default:
       return state
   }
