@@ -13,11 +13,10 @@ describe('App', ()=>{
 
   it('exists', ()=>{
     expect(component).to.exist;
-    console.log('component*** ', component);
   });
-  it('has the correct text', ()=>{
-    expect(component).to.contain('some text');
-  });
+  // it('has the correct text', ()=>{
+  //   expect(component).to.contain('some text');
+  // }); //do not need no more.
   it('shows a comment box', ()=>{
     expect(component.find('.comment_box')).to.exist;
   });
