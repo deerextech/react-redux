@@ -9,7 +9,6 @@ describe('App', ()=>{
   beforeEach(()=>{
     // cant declare variable here because it would only be available in this function's scope.
     component = renderComponent(App);
-
   });
 
   it('exists', ()=>{
@@ -18,6 +17,12 @@ describe('App', ()=>{
   });
   it('has the correct text', ()=>{
     expect(component).to.contain('some text');
+  });
+  it('shows a comment box', ()=>{
+    expect(component.find('.comment_box')).to.exist;
+  });
+  it('shows a comment list', ()=>{
+    expect(component.find('.comment_list')).to.exist;
   })
 
 })
