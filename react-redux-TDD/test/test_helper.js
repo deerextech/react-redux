@@ -35,7 +35,7 @@ function renderComponent(ComponentClass, props = {}, state = {}) {
   //make instance of said class (below)
   //renderIntoDocument requires DOM, need react-dom library.
   const componentInstance =  TestUtils.renderIntoDocument(
-  // probably going to need to wrap this in Provider once reducers come into play.... 
+  // probably going to need to wrap this in Provider once reducers come into play....
     <ComponentClass {...props} />
 
   );
@@ -55,7 +55,7 @@ $.fn.simulate = function(eventName, value) {
   }
   //takes event name & element it is called on.
   //reference object property so it can take whatever event happens.
-  TestUtils.Simulate[eventName](this);
+  TestUtils.Simulate[eventName](this[0]);
 };
 
 //export to use in test suites.
